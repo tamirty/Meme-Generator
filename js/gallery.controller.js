@@ -5,13 +5,12 @@ function renderGallery() {
     const imgs = getImgs()
 
     const strHtmls = imgs.map(img => `
-    <img src="${img.url}" alt="" onclick="coverCanvasWithImg(this)">`
-    )
+    <img src="${img.url}" alt="" onclick="onImgSelect(${img.id})">
+    `)
 
     elGallery.innerHTML = strHtmls.join('')
-
 }
 
-function omImgSelect() {
-
+function onImgSelect(imgId) {
+    setImg(imgId)
 }

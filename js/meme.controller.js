@@ -29,11 +29,11 @@ function addTouchListeners() {
     gElCanvas.addEventListener('touchend', onUp)
 }
 
-function drawImg() {
+function drawImg(imgId) {
     const elImg = new Image()  
-    elImg.src = 'imgs/3.jpg'
-    console.log(elImg);
-    
+    const img = getImgById(imgId)
+    elImg.src = img.url
+   
     elImg.onload = () => coverCanvasWithImg(elImg)
 }
 
@@ -43,6 +43,6 @@ function coverCanvasWithImg(elImg) {
 }
 
 function renderMeme() {
-    drawImg()
+    drawImg(gMeme.selectedImgId)
 }
 
