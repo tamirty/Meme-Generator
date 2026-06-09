@@ -8,6 +8,7 @@ function onInit() {
     gCtx = gElCanvas.getContext('2d')
 
     // addListeners()
+    renderGallery()
     renderMeme()
 }
 
@@ -44,3 +45,4 @@ function coverCanvasWithImg(elImg) {
 function renderMeme() {
     drawImg()
 }
+
