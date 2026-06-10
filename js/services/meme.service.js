@@ -34,3 +34,7 @@ function setImg(imgId) {
     gMeme.selectedImgId = imgId
     renderMeme()
 }
+
+function getMeme() {
+    return gMeme
+}
