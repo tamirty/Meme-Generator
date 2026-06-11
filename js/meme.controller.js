@@ -29,7 +29,7 @@ function addTouchListeners() {
     gElCanvas.addEventListener('touchend', onUp)
 }
 
-function drawImg(imgId,onImgLoaded) {
+function drawImg(imgId, onImgLoaded) {
     const elImg = new Image()
     const img = getImgById(imgId)
     elImg.src = img.url
@@ -49,17 +49,19 @@ function renderMeme() {
     const meme = getMeme()
 
     drawImg(meme.selectedImgId, () => {
-        drawText(meme.lines[0].txt, 50, 50)
+        meme.lines.forEach(line => {
+            drawText(line.txt, 50, 50, line.color,line.size)
+        })
     })
 }
 
-function drawText(text, x, y) {
+function drawText(text, x, y, color,size) {
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'orange'
+    gCtx.strokeStyle = color
 
-    gCtx.fillStyle = 'lightsteelblue'
+    gCtx.fillStyle = color
 
-    gCtx.font = '45px Arial'
+    gCtx.font = `${size}px Arial`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
@@ -70,4 +72,29 @@ function drawText(text, x, y) {
 function onAddText(ev) {
     const { offsetX, offsetY } = ev
     drawText(gMeme.lines[0].txt, offsetX, offsetY)
+}
+
+function onSetLineTxt(txt) {
+    setLineTxt(txt)
+    renderMeme()
+}
+
+function onSetColor(color) {
+    setColor(color)
+    renderMeme()
+}
+
+function onIncreaseFont() {
+    increaseFont()
+    renderMeme()
+}
+
+function onDecreaseFont() {
+    decreaseFont()
+    renderMeme()
+}
+
+function onDownloadImg(elLink) {
+    elLink.href = gElCanvas.toDataURL()
+    elLink.download = 'meme-2026'
 }

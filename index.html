@@ -20,7 +20,11 @@
         <div class="canvas-container">
             <canvas height="400" onclick="onAddText(event)"></canvas>
         </div>
-        <input type="text" oninput="setLineTxt(this.value)">
+        <input type="text" oninput="onSetLineTxt(this.value)">
+        <input class="color-picker" type="color" value="#000000" oninput="onSetColor(this.value)"/>
+        <button onclick="onIncreaseFont()">A+</button>
+        <button onclick="onDecreaseFont()">A-</button>
+        <a href="#" onclick="onDownloadImg(this)" download="file-name">Download</a>
     </section>
 
     <script src="js/services/util.service.js"></script>
