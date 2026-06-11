@@ -26,10 +26,9 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel'
-            ,
+            txt: 'Hello',
             size: 20,
-            color: 'red'
+            color: 'blue'
         }
     ]
 }
@@ -57,18 +56,33 @@ function setLineTxt(txt) {
 }
 
 function setColor(color) {
-    gMeme.lines[gMeme.selectedLineIdx].color = color   
+    gMeme.lines[gMeme.selectedLineIdx].color = color
 }
 
 function increaseFont() {
-    gMeme.lines[gMeme.selectedLineIdx].size +=2
+    gMeme.lines[gMeme.selectedLineIdx].size += 2
 }
 
 function decreaseFont() {
-    if (gMeme.lines[gMeme.selectedLineIdx].size<=20) return
-    gMeme.lines[gMeme.selectedLineIdx].size -=2
+    if (gMeme.lines[gMeme.selectedLineIdx].size <= 20) return
+    gMeme.lines[gMeme.selectedLineIdx].size -= 2
 }
 
+function addNewLine() {
+    const newLine = {
+        txt: 'New Line',
+        size: 20,
+        color: 'yellow'
+    }
+    gMeme.lines.push(newLine)
+    gMeme.selectedLineIdx = gMeme.lines.length-1
+}
+
+function switchLine() {
+    gMeme.selectedLineIdx++
+
+    if(gMeme.selectedLineIdx >=gMeme.lines.length) gMeme.selectedLineIdx = 0
+}
 
 
 

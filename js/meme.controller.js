@@ -47,15 +47,24 @@ function coverCanvasWithImg(elImg) {
 
 function renderMeme() {
     const meme = getMeme()
+    renderLineTxt()
 
     drawImg(meme.selectedImgId, () => {
         meme.lines.forEach(line => {
-            drawText(line.txt, 50, 50, line.color,line.size)
+            drawText(line.txt, 50, 50, line.color, line.size)
         })
     })
 }
 
-function drawText(text, x, y, color,size) {
+function renderLineTxt() {
+    const meme = getMeme()
+    const currLine = meme.lines[meme.selectedLineIdx]
+ 
+    const elTxtInput = document.querySelector('.txt-input')
+    elTxtInput.value = currLine.txt
+}
+
+function drawText(text, x, y, color, size) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = color
 
@@ -91,6 +100,16 @@ function onIncreaseFont() {
 
 function onDecreaseFont() {
     decreaseFont()
+    renderMeme()
+}
+
+function onAddNewLine() {
+    addNewLine()
+    renderMeme()
+}
+
+function onSwitchLine() {
+    switchLine()
     renderMeme()
 }
 
