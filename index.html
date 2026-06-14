@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles/styles.css">
     <title>Meme Generator 2026</title>
 </head>
 
 <body onload="onInit()">
-    <header>
-        <h1>Meme Generator 2026</h1>
+
+    <header class="main-header">
+
+        <div class="logo">Meme Generator 2026</div>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Galley</a></li>
+                <li><a href="#">Editor</a></li>
+                <li><a href="#">Saved Memes</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section class="gallery-container">
@@ -17,18 +27,27 @@
     </section>  
     
     <section class="editor-container">
+
         <div class="canvas-container">
             <canvas height="400"></canvas>
         </div>
-        <input type="text" class="txt-input" oninput="onSetLineTxt(this.value)">
-        <input class="color-picker" type="color" value="#000000" oninput="onSetColor(this.value)"/>
-        <button onclick="onIncreaseFont()">A+</button>
-        <button onclick="onDecreaseFont()">A-</button>
-        <button onclick="onAddNewLine()">Add Line</button>
-        <button onclick="onRemoveLine()">X</button>
-        <button onclick="onSwitchLine()">Switch</button>
-        <a href="#" onclick="onDownloadImg(this)" download="file-name">Download</a>
+
+        <div class="btns-container">
+            <input type="text" class="txt-input" oninput="onSetLineTxt(this.value)">
+            <input class="color-picker" type="color" value="#000000" oninput="onSetColor(this.value)"/>
+            <button onclick="onIncreaseFont()">A+</button>
+            <button onclick="onDecreaseFont()">A-</button>
+            <button onclick="onAddNewLine()">Add Line</button>
+            <button onclick="onRemoveLine()">X</button>
+            <button onclick="onSwitchLine()">Switch</button>
+            <a href="#" onclick="onDownloadImg(this)" download="file-name">Download</a>
+        </div>
+
     </section>
+
+    <footer class="main-footer">
+        <small>All rights reserved to Meme Generator 2026 LTD</small>
+    </footer>
 
     <script src="js/services/util.service.js"></script>
     <script src="js/services/meme.service.js"></script>
