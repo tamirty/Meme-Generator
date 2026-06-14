@@ -28,7 +28,9 @@ var gMeme = {
         {
             txt: 'Hello',
             size: 20,
-            color: 'blue'
+            color: 'blue',
+            x: 0,
+            y: 0,
         }
     ]
 }
@@ -68,21 +70,51 @@ function decreaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size -= 2
 }
 
-function addNewLine() {
+function addNewLine(canvasWidth) {
     const newLine = {
         txt: 'New Line',
         size: 20,
-        color: 'yellow'
+        color: 'yellow',
+        x: canvasWidth / 2,
+        y: 50 + gMeme.lines.length * 50,
     }
+
     gMeme.lines.push(newLine)
-    gMeme.selectedLineIdx = gMeme.lines.length-1
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function removeLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+
+    if (gMeme.selectedLineIdx >= gMeme.lines.length) {
+        gMeme.selectedLineIdx = gMeme.lines.length - 1
+    }
 }
 
 function switchLine() {
     gMeme.selectedLineIdx++
 
-    if(gMeme.selectedLineIdx >=gMeme.lines.length) gMeme.selectedLineIdx = 0
+    if (gMeme.selectedLineIdx >= gMeme.lines.length) gMeme.selectedLineIdx = 0
 }
 
 
+function initMeme(canvasWidth) {
+    gMeme.lines[0].x = canvasWidth / 2
+    gMeme.lines[0].y = 50
+}
+
+function getClickedLineIdx(pos) {
+    return gMeme.lines.findIndex(line => {
+        const width = gCtx.measureText(line.txt).width
+
+        return (
+            pos.x >= line.x - width / 2 - 10 && pos.x <= line.x + width / 2 + 10 &&
+            pos.y >= line.y - line.size / 2 - 10 && pos.y <= line.y + line.size / 2 + 10
+        )
+    })
+}
+
+function setSelectedLine(lineIdx) {
+    gMeme.selectedLineIdx = lineIdx
+}
 
