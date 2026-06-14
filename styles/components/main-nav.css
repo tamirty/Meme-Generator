@@ -1,0 +1,8 @@
+.main-nav>ul {
+    gap: 50px;
+    text-transform: uppercase;
+}
+
+.main-nav>ul a {
+    text-decoration: none;
+}

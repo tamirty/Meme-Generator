@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Meme Generator 2026</title>
 </head>
 
-<body onload="onInit()">
+<body class="meme main-layout" onload="onInit()">
 
-    <header class="main-header">
+    <header class="main-header flex align-center space-between">
 
-        <div class="logo">Meme Generator 2026</div>
+        <div class="main-logo" onclick="showGallery()">Meme Gen 2026</div>
 
         <nav class="main-nav">
-            <ul>
-                <li><a href="#">Galley</a></li>
-                <li><a href="#">Editor</a></li>
+            <ul class="clean-li flex">
+                <li><a href="#" onclick="showGallery()">Galley</a></li>
+                <li><a href="#" onclick="showEditor()">Editor</a></li>
                 <li><a href="#">Saved Memes</a></li>
             </ul>
         </nav>
@@ -26,10 +26,10 @@
         <div class="gallery"></div>
     </section>  
     
-    <section class="editor-container">
+    <section class="editor-container flex align-center hidden">
 
         <div class="canvas-container">
-            <canvas height="400"></canvas>
+            <canvas height="500"></canvas>
         </div>
 
         <div class="btns-container">

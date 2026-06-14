@@ -157,3 +157,18 @@ function onDown(ev) {
     renderLineTxt()
     renderMeme()
 }
+
+function showEditor() {
+    const elEditor = document.querySelector('.editor-container')
+    elEditor.classList.remove('hidden')
+    const elGallery = document.querySelector('.gallery-container')
+    elGallery.classList.add('hidden')
+}
+
+function showGallery(){
+    const elGallery = document.querySelector('.gallery-container')
+    elGallery.classList.remove('hidden')
+    const elEditor = document.querySelector('.editor-container')
+    elEditor.classList.add('hidden')
+}
+

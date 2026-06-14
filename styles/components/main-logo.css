@@ -1,0 +1,7 @@
+.main-logo {
+    color: var(--clr-primary--1);
+    font-size: 1.875em;
+    text-transform: uppercase;
+    letter-spacing: 0.05;
+    cursor: pointer;
+}

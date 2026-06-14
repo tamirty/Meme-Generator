@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--clr-primary-base);
+}
+
+body {
+    margin: 0;
+    background-color: #eee;
+    /* text-align: center; */
+}
+
+a {
+    color: var(--clr-primary--1);
+}

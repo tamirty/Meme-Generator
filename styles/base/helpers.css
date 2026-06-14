@@ -1,0 +1,21 @@
+.flex {
+    display: flex;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.clean-li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hidden {
+    display: none;
+}
