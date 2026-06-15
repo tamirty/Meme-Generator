@@ -7,7 +7,7 @@
     <title>Meme Generator 2026</title>
 </head>
 
-<body class="meme main-layout" onload="onInit()">
+<body class="main-layout" onload="onInit()">
 
     <header class="main-header flex align-center space-between">
 
@@ -34,12 +34,14 @@
 
         <div class="btns-container">
             <input type="text" class="txt-input" oninput="onSetLineTxt(this.value)">
-            <input class="color-picker" type="color" value="#000000" oninput="onSetColor(this.value)"/>
-            <button onclick="onIncreaseFont()">A+</button>
-            <button onclick="onDecreaseFont()">A-</button>
-            <button onclick="onAddNewLine()">Add Line</button>
-            <button onclick="onRemoveLine()">X</button>
-            <button onclick="onSwitchLine()">Switch</button>
+            <div class="actions">
+                <input class="color-picker" type="color" value="#000000" oninput="onSetColor(this.value)"/>
+                <button onclick="onIncreaseFont()">A+</button>
+                <button onclick="onDecreaseFont()">A-</button>
+                <button onclick="onAddNewLine()">Add Line</button>
+                <button onclick="onRemoveLine()">X</button>
+                <button onclick="onSwitchLine()">Switch</button>
+            </div>
             <a href="#" onclick="onDownloadImg(this)" download="file-name">Download</a>
         </div>
 

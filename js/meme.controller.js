@@ -2,6 +2,7 @@
 
 var gElCanvas
 var gCtx
+var gIsDragging = false
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
@@ -13,6 +14,11 @@ function onInit() {
     renderMeme()
 }
 
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = elContainer.clientWidth
+}
+
 function addListeners() {
     addMouseListeners()
     // addTouchListeners()
@@ -20,8 +26,8 @@ function addListeners() {
 
 function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)
-    // gElCanvas.addEventListener('mousemove', onMove)
-    // gElCanvas.addEventListener('mouseup', onUp)
+    gElCanvas.addEventListener('mousemove', onMove)
+    gElCanvas.addEventListener('mouseup', onUp)
 }
 
 function addTouchListeners() {
@@ -154,8 +160,33 @@ function onDown(ev) {
     if (lineIdx === -1) return
 
     setSelectedLine(lineIdx)
+    gIsDragging = true
     renderLineTxt()
     renderMeme()
+}
+
+function onMove(ev) {
+    const pos = getEvPos(ev)
+    const meme = getMeme()
+    const lineIdx = getClickedLineIdx(pos)
+    
+    if (lineIdx !== -1) {
+        gElCanvas.style.cursor = 'grab'
+    } else {
+        gElCanvas.style.cursor = 'default'
+    }
+    
+    if (!gIsDragging) return
+
+    const line = meme.lines[meme.selectedLineIdx]
+    line.x = pos.x
+    line.y = pos.y
+
+    renderMeme()
+}
+
+function onUp() {
+    gIsDragging = false
 }
 
 function showEditor() {
@@ -165,7 +196,7 @@ function showEditor() {
     elGallery.classList.add('hidden')
 }
 
-function showGallery(){
+function showGallery() {
     const elGallery = document.querySelector('.gallery-container')
     elGallery.classList.remove('hidden')
     const elEditor = document.querySelector('.editor-container')
