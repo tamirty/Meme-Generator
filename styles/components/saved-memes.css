@@ -1,6 +1,12 @@
 .saved-memes {
     flex-wrap: wrap;
     gap: 20px;
+    font-size: 2rem;
+    color: var(--clr-primary--1);
+}
+
+.saved-memes p {
+margin: 0 auto;
 }
 
 .saved-meme {

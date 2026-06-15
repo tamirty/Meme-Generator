@@ -234,8 +234,12 @@ function renderSavedMemes() {
     </div>
     `
     )
-
+    const emptyMessage = '<p>No saved Memes</p>'
     const elSavedMemes = document.querySelector('.saved-memes')
-    elSavedMemes.innerHTML = strHtmls.join('')
+    if (!memes.length) { 
+        elSavedMemes.innerHTML = emptyMessage 
+    } else {
+        elSavedMemes.innerHTML = strHtmls.join('')
+    }
 }
 
