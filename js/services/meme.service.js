@@ -1,5 +1,9 @@
 'use strict'
 
+const STORAGE_KEY = 'memeDB'
+
+var gSavedMemes = loadFromStorage(STORAGE_KEY) || []
+
 var gImgs = [
     { id: 1, url: 'imgs/1.jpg', keywords: ['funny', 'cat'] },
     { id: 2, url: 'imgs/2.jpg', keywords: ['funny', 'cat'] },
@@ -43,6 +47,10 @@ function getImgs() {
 
 function getMeme() {
     return gMeme
+}
+
+function getSavedMemes() {
+    return gSavedMemes
 }
 
 function getImgById(imgId) {
@@ -118,3 +126,31 @@ function setSelectedLine(lineIdx) {
     gMeme.selectedLineIdx = lineIdx
 }
 
+function addMeme(data) {
+    const meme = _createMeme(data)
+    gSavedMemes.unshift(meme)
+    _savePicsToStorage()
+    return meme
+}
+
+function _createMeme(data) {
+    return {
+        id: makeId(),
+        createdAt: Date.now(),
+        data
+    }
+}
+
+function removeSavedMeme(memeId) {
+    const savedMemeIdx = gSavedMemes.findIndex(meme => memeId === meme.id)
+    
+    if (savedMemeIdx === -1) return
+    
+    gSavedMemes.splice(savedMemeIdx,1)
+
+    _savePicsToStorage()
+}
+
+function _savePicsToStorage() {
+    saveToStorage(STORAGE_KEY, gSavedMemes)
+}

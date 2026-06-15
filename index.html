@@ -17,7 +17,7 @@
             <ul class="clean-li flex">
                 <li><a href="#" onclick="showGallery()">Galley</a></li>
                 <li><a href="#" onclick="showEditor()">Editor</a></li>
-                <li><a href="#">Saved Memes</a></li>
+                <li><a href="#" onclick="showSavedMemes()">Saved Memes</a></li>
             </ul>
         </nav>
     </header>
@@ -43,9 +43,12 @@
                 <button onclick="onSwitchLine()">Switch</button>
             </div>
             <a href="#" onclick="onDownloadImg(this)" download="file-name">Download</a>
+            <button onclick="onSaveMeme()">Save Meme</button>
         </div>
 
     </section>
+
+    <section class="saved-memes hidden"></section>
 
     <footer class="main-footer">
         <small>All rights reserved to Meme Generator 2026 LTD</small>

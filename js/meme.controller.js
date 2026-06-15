@@ -12,6 +12,7 @@ function onInit() {
     renderGallery()
     initMeme(gElCanvas.width)
     renderMeme()
+    renderSavedMemes()
 }
 
 function resizeCanvas() {
@@ -169,13 +170,13 @@ function onMove(ev) {
     const pos = getEvPos(ev)
     const meme = getMeme()
     const lineIdx = getClickedLineIdx(pos)
-    
+
     if (lineIdx !== -1) {
         gElCanvas.style.cursor = 'grab'
     } else {
         gElCanvas.style.cursor = 'default'
     }
-    
+
     if (!gIsDragging) return
 
     const line = meme.lines[meme.selectedLineIdx]
@@ -189,17 +190,52 @@ function onUp() {
     gIsDragging = false
 }
 
+function hideAllSections() {
+    document.querySelector('.gallery-container').classList.add('hidden')
+    document.querySelector('.editor-container').classList.add('hidden')
+    document.querySelector('.saved-memes').classList.add('hidden')
+}
+
 function showEditor() {
+    hideAllSections()
     const elEditor = document.querySelector('.editor-container')
     elEditor.classList.remove('hidden')
-    const elGallery = document.querySelector('.gallery-container')
-    elGallery.classList.add('hidden')
 }
 
 function showGallery() {
+    hideAllSections()
     const elGallery = document.querySelector('.gallery-container')
     elGallery.classList.remove('hidden')
-    const elEditor = document.querySelector('.editor-container')
-    elEditor.classList.add('hidden')
+}
+
+function showSavedMemes() {
+    hideAllSections()
+    const elSavedMemes = document.querySelector('.saved-memes')
+    elSavedMemes.classList.remove('hidden')
+}
+
+function onSaveMeme() {
+    const data = gElCanvas.toDataURL()
+    addMeme(data)
+    renderSavedMemes()
+}
+
+function onRemoveSavedMeme(memeId) {
+    removeSavedMeme(memeId)
+    renderSavedMemes()
+}
+
+function renderSavedMemes() {
+    const memes = getSavedMemes()
+    const strHtmls = memes.map(meme => `
+    <div class="saved-meme">
+    <button onclick="onRemoveSavedMeme('${meme.id}')">X</button>
+    <img src="${meme.data}">
+    </div>
+    `
+    )
+
+    const elSavedMemes = document.querySelector('.saved-memes')
+    elSavedMemes.innerHTML = strHtmls.join('')
 }
 

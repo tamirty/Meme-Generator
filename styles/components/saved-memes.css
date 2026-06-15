@@ -1,0 +1,13 @@
+.saved-meme {
+    position: relative;
+    display: inline-block;
+}
+
+.saved-meme>button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    border-radius: 20px;
+    font-size: 1.1rem;
+}
