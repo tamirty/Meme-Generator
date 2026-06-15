@@ -6,3 +6,6 @@
 .main-nav>ul a {
     text-decoration: none;
 }
+.main-nav>ul a:hover {
+    text-decoration: underline;
+}

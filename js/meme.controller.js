@@ -98,7 +98,7 @@ function drawTextRect(line, x, y) {
     const height = line.size
 
     gCtx.beginPath()
-    gCtx.strokeStyle = 'lightblue'
+    gCtx.strokeStyle = 'white'
     gCtx.lineWidth = 2
     gCtx.roundRect(x - width / 2 - 10, y - height / 2 - 10, width + 20, height + 20, 10)
 

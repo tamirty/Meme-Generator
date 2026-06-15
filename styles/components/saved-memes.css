@@ -1,6 +1,10 @@
+.saved-memes {
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .saved-meme {
     position: relative;
-    display: inline-block;
 }
 
 .saved-meme>button {
