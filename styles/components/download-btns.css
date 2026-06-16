@@ -6,3 +6,10 @@
 .download-btns>button {
     font-size: 1.3rem;
 }
+
+.download-btns>a {
+    border: 1px solid black;
+    text-decoration: none;
+    font-size: 1.3rem;
+    padding: 2px;
+}

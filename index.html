@@ -10,17 +10,20 @@
 
 <body class="main-layout" onload="onInit()">
 
+    <div class="main-screen" onclick="toggleMenu()"></div>
+
     <header class="main-header flex align-center space-between">
 
         <div class="main-logo" onclick="showGallery()">Meme Gen 2026</div>
 
         <nav class="main-nav">
             <ul class="clean-li flex">
-                <li><a href="#" onclick="showGallery()">Galley</a></li>
+                <li><a href="#" onclick="showGallery()">Gallery</a></li>
                 <li><a href="#" onclick="showEditor()">Editor</a></li>
                 <li><a href="#" onclick="showSavedMemes()">Saved Memes</a></li>
             </ul>
         </nav>
+        <button class="btn-menu" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
     </header>
 
     <section class="gallery-container">
@@ -30,22 +33,22 @@
     <section class="editor-container flex align-center hidden">
 
         <div class="canvas-container">
-            <canvas height="500"></canvas>
+            <canvas width="400"></canvas>
         </div>
 
         <div class="btns-container flex">
             <input type="text" class="txt-input" oninput="onSetLineTxt(this.value)">
             <div class="actions">
                 <input class="color-picker" type="color" value="#000000" oninput="onSetColor(this.value)"/>
-                <button onclick="onIncreaseFont()"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
-                <button onclick="onDecreaseFont()"><i class="fa-solid fa-down-left-and-up-right-to-center"></i></button>
+                <button onclick="onIncreaseFont()">A+</button>
+                <button onclick="onDecreaseFont()">A-</button>
                 <button onclick="onAddNewLine()">Add Line</button>
                 <button onclick="onRemoveLine()"><i class="fa-solid fa-trash"></i></button>
                 <button onclick="onSwitchLine()">Switch</button>
             </div>
-            <div class="download-btns flex">
-                <a href="#" onclick="onDownloadImg(this)" download="file-name">Download</a>
-                <button onclick="onSaveMeme()">Save Meme</button>
+            <div class="download-btns flex align-center">
+                <a href="#" onclick="onDownloadImg(this)" download="file-name">Download <i class="fa-solid fa-file-arrow-down"></i></a>
+                <button onclick="onSaveMeme()">Save Meme <i class="fa-solid fa-cloud-arrow-down"></i></button>
             </div>
         </div>
 

@@ -1,24 +1,13 @@
 .main-layout {
     display: grid;
-    grid-template-columns: minmax(1rem, 1fr) minmax(auto, 1060px) minmax(1rem, 1fr);
+    grid-template-columns: 1rem 1fr 1rem;
     grid-auto-rows: auto 1fr auto;
+    align-items: center;
     min-height: 100vh;
 }
 
 .main-layout>* {
     grid-column: 2;
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    align-items: center;
-    justify-items: center;
-    gap: 10px;
-}
-
-.gallery img {
-    cursor: pointer;
 }
 
 .editor-container {

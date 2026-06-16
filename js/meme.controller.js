@@ -15,11 +15,6 @@ function onInit() {
     renderSavedMemes()
 }
 
-function resizeCanvas() {
-    const elContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elContainer.clientWidth
-}
-
 function addListeners() {
     addMouseListeners()
     // addTouchListeners()
@@ -236,8 +231,8 @@ function renderSavedMemes() {
     )
     const emptyMessage = '<p>No saved Memes</p>'
     const elSavedMemes = document.querySelector('.saved-memes')
-    if (!memes.length) { 
-        elSavedMemes.innerHTML = emptyMessage 
+    if (!memes.length) {
+        elSavedMemes.innerHTML = emptyMessage
     } else {
         elSavedMemes.innerHTML = strHtmls.join('')
     }
