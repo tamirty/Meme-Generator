@@ -6,7 +6,7 @@
     min-height: 100vh;
 }
 
-.main-layout>* {
+.main-layout>*:not(.main-screen) {
     grid-column: 2;
 }
 
@@ -21,4 +21,3 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
-

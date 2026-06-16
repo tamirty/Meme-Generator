@@ -76,6 +76,7 @@
         grid-template-columns: minmax(1rem, 1fr) minmax(auto, 1060px) minmax(1rem, 1fr);
     }
 
+
     .gallery {
         gap: 10px;
     }
