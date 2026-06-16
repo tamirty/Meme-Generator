@@ -1,0 +1,8 @@
+.download-btns {
+    gap: 20px;
+    font-size: 1.3rem;
+}
+
+.download-btns>button {
+    font-size: 1.3rem;
+}

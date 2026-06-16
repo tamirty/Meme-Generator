@@ -27,7 +27,7 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'Add New Text',
+            txt: 'Place Your Text',
             size: 30,
             color: 'blue',
             x: 0,

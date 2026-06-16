@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://kit.fontawesome.com/6b5bb420eb.js" crossorigin="anonymous"></script>
     <title>Meme Generator 2026</title>
 </head>
 
@@ -36,21 +37,23 @@
             <input type="text" class="txt-input" oninput="onSetLineTxt(this.value)">
             <div class="actions">
                 <input class="color-picker" type="color" value="#000000" oninput="onSetColor(this.value)"/>
-                <button onclick="onIncreaseFont()">A+</button>
-                <button onclick="onDecreaseFont()">A-</button>
+                <button onclick="onIncreaseFont()"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+                <button onclick="onDecreaseFont()"><i class="fa-solid fa-down-left-and-up-right-to-center"></i></button>
                 <button onclick="onAddNewLine()">Add Line</button>
-                <button onclick="onRemoveLine()">X</button>
+                <button onclick="onRemoveLine()"><i class="fa-solid fa-trash"></i></button>
                 <button onclick="onSwitchLine()">Switch</button>
             </div>
-            <a href="#" onclick="onDownloadImg(this)" download="file-name">Download</a>
-            <button onclick="onSaveMeme()">Save Meme</button>
+            <div class="download-btns flex">
+                <a href="#" onclick="onDownloadImg(this)" download="file-name">Download</a>
+                <button onclick="onSaveMeme()">Save Meme</button>
+            </div>
         </div>
 
     </section>
 
     <section class="saved-memes flex hidden"></section>
 
-    <footer class="main-footer flex align-center space-between">
+    <footer class="main-footer flex align-center">
         <small>All rights reserved to Meme Generator 2026 LTD</small>
     </footer>
 
