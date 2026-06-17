@@ -23,6 +23,7 @@ a {
 .main-screen {
     opacity: 0;
     pointer-events: none;
+    z-index: 10;
  }
 
 body.menu-open .main-screen {
